@@ -6,3 +6,6 @@ app.use(restify.bodyParser());
 app.listen(config.port, () => {
   console.log('server listening on port number', config.port)
 });
+
+
+var routes = require('./routes')(app);
