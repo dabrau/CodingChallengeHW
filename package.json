@@ -1,0 +1,26 @@
+{
+  "name": "scoreboard",
+  "version": "1.0.0",
+  "description": "coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dabrau@github.com/dabrau/CodingChallengeHW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dabrau/CodingChallengeHW/issues"
+  },
+  "homepage": "https://github.com/dabrau/CodingChallengeHW#readme",
+  "dependencies": {
+    "restify": "latest",
+    "mongoose": "latest"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.3"
+  }
+}
