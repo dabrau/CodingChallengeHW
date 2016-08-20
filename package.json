@@ -19,8 +19,5 @@
   "dependencies": {
     "restify": "latest",
     "mongoose": "latest"
-  },
-  "devDependencies": {
-    "jshint": "^2.9.3"
   }
 }
