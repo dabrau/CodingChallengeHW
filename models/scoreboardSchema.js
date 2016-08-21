@@ -1,10 +1,23 @@
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 var Participant = mongoose.model('Participant')
 
 var Scoreboard = new Schema({
-  name: ObjectId,
-  activity: Enum,
-  date: Date,
-  comments: [Participant]
+  id: Schema.Types.ObjectId,
+  name: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  activity: {
+    type: String,
+    enum: ['Thumb War', 'Red Hands', 'Rock Paper Scissors']
+  },
+  createdAt: {
+    type: String,
+    required: true
+  },
+  participants: [Participant]
 });
 
-mongoose.model('Scoreboard', Scoreboard);
+module.exports = mongoose.model('Scoreboard', Scoreboard);
