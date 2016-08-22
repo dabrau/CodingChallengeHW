@@ -1,8 +1,12 @@
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
+
 var Participant = new Schema({
-  name: ObjectId,
+  id: Schema.Types.ObjectId,
+  name: String,
   score: Number,
   matches: Number,
   matchesWon: Number
 });
 
-mongoose.model('Participant', Participant)
+module.exports = mongoose.model('Participant', Participant)
