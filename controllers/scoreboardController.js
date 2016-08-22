@@ -15,8 +15,19 @@ function scoreboardController () {
     });
   };
 
-  this.getScoreboard = function (req, res, next) {
+  this.getScoreboards = function (req, res, next) {
     Scoreboard.find({}, function(err, result) {
+      if (err) {
+        console.log(err);
+        return res.send({'error':err});
+      } else {
+        return res.send({'scoreboards':result});
+      }
+    });
+  };
+
+  this.getScoreboard = function (req, res, next) {
+    Scoreboard.findById(req.params.id, function(err, result) {
       if (err) {
         console.log(err);
         return res.send({'error':err});
@@ -25,6 +36,28 @@ function scoreboardController () {
       }
     });
   };
+
+  this.updateScoreboard = function (req, res, next) {
+    Scoreboard.findByIdAndUpdate(req.params.id, { $set: JSON.parse(req.body) }, function(err, result) {
+      if (err) {
+        return res.send({'error':err});
+      } else {
+        return res.send({'status':'sucessfully updated'});
+      }
+    });
+  };
+
+  this.deleteScoreboard = function (req, res, next) {
+    Scoreboard.findByIdAndRemove(req.params.id, function(err, result) {
+      if (err) {
+        console.log(err);
+        return res.send({'error':err});
+      } else {
+        return res.send({'status':'sucessfully deleted'});
+      }
+    });
+  };
+
 };
 
 module.exports = new scoreboardController();
