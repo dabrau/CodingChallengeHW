@@ -31,7 +31,7 @@ class Scoreboard {
     this.participants = scoreboard.participats
   }
 
-  static updateFromJson(json) {
+  updateFromJson(json) {
     this.id = json._id
     this.name = json.name
     this.activity = json.activity
@@ -51,6 +51,18 @@ class ScoreboardStore {
     } else {
       scoreboard.updateFromJson(json);
     }
+  }
+
+  deleteScoreboard(id) {
+    axios.delete("/scoreboard/" + id)
+      .then((response) => { 
+        console.log(this)
+        let index = this.scoreboards.findIndex((e, i, arr) => e.id === id);
+        if (index > -1) {
+          this.scoreboards.splice(index, 1);
+        }
+      })
+      .catch((error) => { console.log(error) });
   }
 
   loadScoreboards() {
